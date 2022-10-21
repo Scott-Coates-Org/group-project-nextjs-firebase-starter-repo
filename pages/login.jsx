@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => signInWithGoogle()} className="button">
+      <button onClick={signInWithGoogle} className="button">
         <img src="/images/googlelogo.png" alt="Google Logo" />
         Continue with Google
       </button>
