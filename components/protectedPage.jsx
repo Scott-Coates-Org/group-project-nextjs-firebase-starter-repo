@@ -1,24 +1,23 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useAuth } from '../context/Auth';
 
-export const ProtectedRoute = ({ user = false, children }) => {
-  const [login, setLogin] = useState(false);
+export const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated, isLoaded, isLoading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    login && router.push('/login');
-  }, [login]);
-  useEffect(() => {
-    !!user?.uid ? setLogin(false) : setLogin(true);
-  }, [user]);
+    if ((!isLoading && !isLoaded) || (isLoaded && !isAuthenticated)) {
+      router.push('/login');
+    }
+  }, [isAuthenticated, isLoaded, isLoading]);
 
   return (
     <>
-      {user ? (
+      {isAuthenticated ? (
         children
       ) : (
         <div>
-          <p>Redirecting...</p>
         </div>
       )}
     </>

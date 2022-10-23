@@ -1,9 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import '@firebase/auth';
-import '@firebase/storage';
-import 'firebase/firestore';
+// import '@firebase/auth';
+// import '@firebase/storage';
+// import 'firebase/firestore';
 
 const firebaseKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 const firebaseProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;

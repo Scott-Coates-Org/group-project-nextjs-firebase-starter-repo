@@ -5,10 +5,8 @@ import Logout from '../components/Logout';
 import Users from '../components/Users';
 
 const Home = () => {
-  const { user } = useAuth();
-
   return (
-    <ProtectedRoute user={user}>
+    <ProtectedRoute>
       <div className="App App-header">
         <img src="/logo.svg" className="App-logo" alt="logo" />
         <p>
